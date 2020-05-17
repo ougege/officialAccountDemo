@@ -7,9 +7,8 @@ class Music163:
     # api 地址:http://doc.itooi.cn/#/
     # 搜索歌曲Id
     def searchSong(musicName):
-      newMusicName = musicName.split('歌曲-', 1)
       defaulUrl = 'https://v1.itooi.cn/netease/search?type=song&pageSize=1&page=0&'
-      searchStr = 'keyword=' + newMusicName[1]
+      searchStr = 'keyword=' + musicName
       url = defaulUrl + searchStr
       method = 'GET'
       # 配置headers
@@ -24,6 +23,7 @@ class Music163:
       singer = songIds[0]['ar'][0]['name']
       id = songIds[0]['id']
       singleSong = {'name': name, 'singer': singer, 'id': id}
+      print(singleSong)
       return singleSong
     def songUrl(singleSong):
       tempArr = []
